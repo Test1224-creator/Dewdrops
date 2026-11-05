@@ -16,8 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aurelia — Botanical Skincare",
-  description: "Aurelia botanical skincare.",
+  title: "Dewdrop — Botanical Skincare",
+  description: "Dewdrop botanical skincare.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

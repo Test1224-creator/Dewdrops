@@ -110,7 +110,7 @@ export default function Footer() {
       </div>
 
       <div className="footer__bottom">
-        <span>© 2026 Aurelia. All rights reserved.</span>
+        <span>© 2026 Dewdrop. All rights reserved.</span>
         <span>Botanical skincare, made with care.</span>
       </div>
     </footer>

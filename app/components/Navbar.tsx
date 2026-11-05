@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../images/logo-mark.webp";
+import logo from "../images/logo.webp";
 import "../styles/navbar.css";
 
 const links = [
@@ -16,7 +16,7 @@ export default function Navbar() {
       <Link href="/" className="navbar__brand">
         <Image
           src={logo}
-          alt="Aurelia"
+          alt="Dewdrop"
           className="navbar__logo"
           priority
         />
