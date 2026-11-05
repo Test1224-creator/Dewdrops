@@ -1,0 +1,185 @@
+.concerns {
+  padding: 6px;
+  background: #f3efe2;
+}
+
+.concerns__frame {
+  position: relative;
+  width: 100%;
+  /* Shorter than the photo (1620x971); keep in sync with FRAME_H / FOCUS_Y in SkinConcerns.tsx */
+  aspect-ratio: 1620 / 640;
+  overflow: hidden;
+}
+
+.concerns__image {
+  object-fit: cover;
+  object-position: 50% 57%;
+}
+
+/* Hotspot dots */
+.concerns__dot {
+  position: absolute;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  background: rgba(176, 156, 186, 0.8);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.concerns__dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.concerns__dot:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.concerns__dot--active {
+  background: rgba(150, 126, 164, 0.95);
+}
+
+.concerns__dot--active::after {
+  animation: concerns-pulse 1.8s ease-out infinite;
+}
+
+@keyframes concerns-pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* Tooltip card: sits above-right of the dot, pointer aimed at it */
+.concerns__card {
+  --offset: 40px;
+
+  position: absolute;
+  z-index: 3;
+  width: min(30vw, 460px);
+  padding: 26px 30px 28px;
+  border-radius: 18px;
+  background: #fffdf0;
+  box-shadow: 0 12px 40px rgba(30, 20, 10, 0.18);
+  transform: translate(calc(var(--offset) * -1), calc(-100% - 30px));
+  animation: concerns-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.concerns__card::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--offset) - 8px);
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: #fffdf0;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+/* Flip to the left of the dot when near the right edge */
+.concerns__card--flip {
+  transform: translate(calc(-100% + var(--offset)), calc(-100% - 30px));
+}
+
+.concerns__card--flip::after {
+  left: auto;
+  right: calc(var(--offset) - 8px);
+}
+
+/* Drop below the dot when it sits high on the image */
+.concerns__card--below {
+  transform: translate(calc(var(--offset) * -1), 30px);
+}
+
+.concerns__card--below.concerns__card--flip {
+  transform: translate(calc(-100% + var(--offset)), 30px);
+}
+
+.concerns__card--below::after {
+  top: -8px;
+  bottom: auto;
+}
+
+@keyframes concerns-in {
+  from {
+    opacity: 0;
+    margin-top: 10px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+.concerns__title {
+  margin: 0 0 14px;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(18px, 1.55vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #15110d;
+}
+
+.concerns__text {
+  margin: 0;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(13px, 1vw, 17px);
+  line-height: 1.65;
+  color: #5d5a55;
+}
+
+/* Tablet: slightly wider card */
+@media (max-width: 1024px) {
+  .concerns__card {
+    width: 340px;
+    padding: 20px 22px 22px;
+  }
+}
+
+/* Phone: card drops below the image instead of floating */
+@media (max-width: 720px) {
+  .concerns {
+    padding: 4px;
+  }
+  .concerns__frame {
+    overflow: visible;
+    margin-bottom: 200px;
+  }
+  .concerns__image {
+    border-radius: 0;
+  }
+  .concerns__dot {
+    width: 14px;
+    height: 14px;
+  }
+  .concerns__card,
+  .concerns__card--flip,
+  .concerns__card--below,
+  .concerns__card--below.concerns__card--flip {
+    left: 12px !important;
+    right: 12px;
+    top: calc(100% + 14px) !important;
+    width: auto;
+    padding: 18px 20px 20px;
+    transform: none;
+    animation: none;
+  }
+  .concerns__card::after {
+    display: none;
+  }
+}

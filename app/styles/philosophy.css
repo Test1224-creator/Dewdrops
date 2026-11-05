@@ -1,0 +1,101 @@
+.philosophy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 44px 24px 110px;
+  background: #fdfcec;
+  text-align: center;
+}
+
+.philosophy__eyebrow {
+  margin: 0 0 20px;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #5a5a12;
+}
+
+.philosophy__statement {
+  max-width: 1000px;
+  margin: 0;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(20px, 1.95vw, 25px);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #9b9b98;
+  text-wrap: balance;
+}
+
+.philosophy__word {
+  transition: color 0.35s ease;
+}
+
+.philosophy__word--lit {
+  color: #1d1712;
+}
+
+/* Trust row */
+.philosophy__trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 64px;
+}
+
+.philosophy__avatars {
+  display: flex;
+}
+
+.philosophy__avatar {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin-left: -12px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fdfcec;
+  background: #e9e1d6;
+}
+
+.philosophy__avatar:first-child {
+  margin-left: 0;
+}
+
+.philosophy__avatar img {
+  object-fit: cover;
+}
+
+.philosophy__trust-text {
+  margin: 0;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  color: #1d1712;
+}
+
+@media (max-width: 720px) {
+  .philosophy {
+    padding: 36px 16px 80px;
+  }
+  .philosophy__eyebrow {
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+  .philosophy__statement {
+    font-size: 19px;
+    line-height: 1.55;
+  }
+  .philosophy__trust {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 56px;
+  }
+  .philosophy__avatar {
+    width: 38px;
+    height: 38px;
+  }
+  .philosophy__trust-text {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,167 @@
+.trust {
+  padding: 70px 5.7vw 80px;
+  background: #fdfcec;
+}
+
+.trust__title {
+  margin: 0 0 clamp(24px, 2.4vw, 44px);
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(28px, 2.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #1d0f0a;
+  white-space: nowrap;
+}
+
+/* The diagram is laid out on a 1623-unit-wide grid (from the reference)
+   so the circles, label and connector lines all scale together. */
+.trust__diagram {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.trust__tree {
+  position: relative;
+  aspect-ratio: 1623 / 603;
+}
+
+.trust__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.trust__lines path {
+  fill: none;
+  stroke: #8c7d6c;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+.trust__top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 24.95%;
+  transform: translateX(-50%);
+}
+
+.trust__circle {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e9e1d6;
+}
+
+.trust__circle img {
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.trust__circle:hover img {
+  transform: scale(1.05);
+}
+
+.trust__top-label {
+  position: absolute;
+  top: 74.8%;
+  left: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(15px, 1.2vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1d0f0a;
+}
+
+/* Bottom row: three equal columns, centred under the line ends */
+.trust__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trust__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2%;
+  text-align: center;
+}
+
+.trust__item .trust__circle {
+  width: 62%;
+}
+
+.trust__item-title {
+  margin: clamp(16px, 1.5vw, 26px) 0 clamp(6px, 0.6vw, 10px);
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(15px, 1.25vw, 21px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #1d0f0a;
+}
+
+.trust__item-text {
+  max-width: 470px;
+  margin: 0;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(13px, 0.95vw, 16px);
+  line-height: 1.6;
+  color: #4f4840;
+}
+
+/* Phone: drop the connector diagram and stack everything */
+@media (max-width: 720px) {
+  .trust {
+    padding: 64px 16px 72px;
+  }
+  .trust__title {
+    font-size: 26px;
+    margin-bottom: 36px;
+    white-space: normal;
+  }
+  .trust__tree {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+  .trust__lines {
+    display: none;
+  }
+  .trust__top {
+    position: static;
+    width: 68%;
+    transform: none;
+  }
+  .trust__top-label {
+    position: static;
+    margin-top: 18px;
+    transform: none;
+    font-size: 19px;
+  }
+  .trust__row {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .trust__item .trust__circle {
+    width: 60%;
+  }
+  .trust__item-title {
+    font-size: 18px;
+  }
+  .trust__item-text {
+    font-size: 14px;
+  }
+}

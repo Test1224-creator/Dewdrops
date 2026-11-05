@@ -1,0 +1,226 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 97vh;
+  height: 92svh;
+  min-height: 630px;
+  padding: 6px;
+  background: #e9e1d6;
+}
+
+.hero__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #fff;
+}
+
+.hero__image {
+  object-fit: cover;
+  object-position: 70% center;
+}
+
+/* Soft warm darkening on the left so the headline reads */
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(40, 30, 20, 0.28) 0%, rgba(40, 30, 20, 0.08) 45%, rgba(40, 30, 20, 0) 60%),
+    linear-gradient(0deg, rgba(30, 22, 15, 0.25) 0%, rgba(30, 22, 15, 0) 35%);
+  pointer-events: none;
+}
+
+/* Left column: headline, copy, CTA */
+.hero__content {
+  position: absolute;
+  left: 4.6%;
+  top: 21%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+}
+
+/* Headline */
+.hero__title {
+  margin: 0;
+  text-align: left;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #fbf8f3;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Copy + CTA under the headline */
+.hero__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.hero__copy {
+  max-width: 300px;
+  margin: 0;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: #1a1a1a;
+  font-family: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.hero__cta:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+
+/* Social proof glass card (bottom right) */
+.hero__proof {
+  position: absolute;
+  right: 5.3%;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 22px 20px 18px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero__avatars {
+  display: flex;
+  align-items: center;
+}
+
+.hero__avatar {
+  width: 38px;
+  height: 38px;
+  margin-left: -9px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-inter), Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: #e9e1d6;
+  color: #fff;
+}
+
+.hero__avatar-img {
+  object-fit: cover;
+}
+
+.hero__avatar:first-child {
+  margin-left: 0;
+}
+
+.hero__avatar--arrow {
+  border: none;
+  background: #111;
+  transition: transform 0.25s ease;
+}
+
+.hero__proof:hover .hero__avatar--arrow {
+  transform: rotate(45deg);
+}
+
+.hero__rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--font-inter), Arial, sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero__rating svg {
+  color: #fff;
+}
+
+.hero__rating-label {
+  margin-left: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero__copy {
+    font-size: 13px;
+  }
+  .hero__cta {
+    padding: 11px 20px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 620px;
+    padding: 4px;
+  }
+  .hero__image {
+    object-position: 68% center;
+  }
+  .hero__shade {
+    background: linear-gradient(0deg, rgba(30, 22, 15, 0.55) 0%, rgba(30, 22, 15, 0) 55%),
+      linear-gradient(180deg, rgba(30, 22, 15, 0.35) 0%, rgba(30, 22, 15, 0) 40%);
+  }
+  .hero__content {
+    left: 16px;
+    right: 16px;
+    top: 110px;
+    gap: 24px;
+  }
+  .hero__title {
+    font-size: 40px;
+  }
+  .hero__copy {
+    font-size: 13px;
+  }
+  .hero__cta {
+    padding: 10px 18px;
+    font-size: 11px;
+  }
+  .hero__proof {
+    right: 16px;
+    bottom: 20px;
+    padding: 16px 18px;
+    gap: 10px;
+  }
+  .hero__avatar {
+    width: 32px;
+    height: 32px;
+  }
+  .hero__rating {
+    font-size: 13px;
+  }
+}
